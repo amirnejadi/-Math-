@@ -1,0 +1,16 @@
+// Hello
+#include<iostream>
+#include<conio.h>
+#include<math.h>
+using namespace std;
+main()
+{
+	
+float r,d,s;
+cout<<"daraje ra vared konid : ";
+cin>>d;
+r=(d*3.14)/180;
+s=sin(r);
+cout<<"sin("<<d<<") : "<<" = "<<s;
+getch(); 
+}
