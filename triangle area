@@ -1,0 +1,11 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int hight,length;
+    cin>>hight>>length;
+    cout<<(double)hight*length/2;
+    return 0;
+}
+
+
