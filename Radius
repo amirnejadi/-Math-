@@ -1,0 +1,16 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+int main()
+{
+    double r, s, p;
+    cout << "Enter the radius of the circle:";
+    cin >> r;
+    s = 3.14 * r * r;
+    p = 2 * 3.14 * r;
+    cout << s << endl
+         << p << endl;
+    getch();
+    return 0;
+}
