@@ -1,0 +1,9 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int hight,width;
+    cin>>hight>>width;
+    cout<<hight*width;
+    return 0;
+}
