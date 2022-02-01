@@ -1,0 +1,9 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int diag1,diag2;
+    cin>>diag1>>diag2;
+    cout<<(double)diag1*diag2/2;
+    return 0;
+}
