@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+int main(int argc, char** argv) {
+    float firstNumber, secondNumber, result;
+    char op;
+    cout<<"Lotfan ebarat mohasebati mored nazar ra vaared konid va sepas Enter ra feshar dahid"<<endl;
+    cout<<"Mesal: 3.5 * 5"<<endl;
+    cin>>firstNumber>>op>>secondNumber;
+    
+    switch(op){
+        case '+':
+            result = firstNumber + secondNumber;
+            break;
+        case '-':
+            result = firstNumber - secondNumber;
+            break;
+        case '*':
+            result = firstNumber * secondNumber;
+            break;
+        case '/':
+            result = firstNumber / secondNumber;
+            break;
+        default:
+            cout<<"Error"<<endl;
+            break;
+    }
+    
+    cout<<firstNumber<<" "<<op<<" "<<secondNumber<<" = "<<result;
+    
+    return 0;
+}
