@@ -1,0 +1,38 @@
+#include <iostream>
+
+using namespace std ;
+
+bool isEven(int) ;
+
+int main() {
+
+
+      int num;
+
+      cout << "Please Enter Your Number :" ;
+
+      cin >> num ;
+
+      if (isEven(num))
+
+             cout << "\nYour Number Is Even." ;
+      else
+
+             cout << "\nYour Number Is Odd." ;
+
+      return 0;
+}
+
+
+bool isEven(int num)
+
+      {
+
+      if (num%2 == 0)
+
+             return true ;
+
+      else
+
+             return false ;
+}
