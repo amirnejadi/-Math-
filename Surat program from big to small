@@ -1,0 +1,66 @@
+#include <iostream.h>
+#include <conio.h>
+#include <math.h>
+//------------sourcea.ir----------------------------------//
+#include <iostream>
+#include <string>
+#include <vector>
+#include <sstream>
+#include <utility>
+using namespace std;
+int partition(int a[], int s, int e) {
+        int x = a[e];
+        int i = s-1;
+        for(int j = s;j<e;++j){
+            if(a[j]<=x){
+                ++i;
+                int temp = a[i];
+                a[i]= a[j];
+                a[j]=temp;
+            }
+        }
+        ++i;
+        int temp = a[i];
+        a[i]= a[e];
+        a[e]=temp;
+        return i;
+    }
+    void quicksort(int a[], int s, int e) {
+        if(s>=e)
+            return;
+        int q = partition(a,s,e);
+        quicksort(a, s, q-1);
+        quicksort(a, q+1, e);
+
+    }
+
+int main() {
+    int x;string num[];int size;int a[];int po=1;
+    cin>>x;
+    for(int y=0;y<x;y++)
+    {
+        cin>>num[y];
+    	if (num[y]>0){
+	    for (int i = 0; i <x ; i++)
+	    {
+	    	for(int k=0;k<num[i].length();k++)
+	    	{
+	    		var H = stoi(num[i]);
+	    		a[k]= H%10;
+	    		H = H/10;
+	    		po++;
+	    	}
+	    size = po;po=0;
+	    quicksort(a,0,size);
+	    }
+	    for (int i = 0;  i < size-1; ++i) {
+	        cout<<a[size-(i+1)];
+	    }
+    }
+	    else
+	    {
+	    	cout<<"-manfi"<<endl;
+	    }
+    }
+    return 0;
+}
