@@ -1,0 +1,25 @@
+#include <stdafx.h>
+#include <conio.h>
+#include <iostream>
+//sourcea.ir
+using namespace std;
+
+
+int bmm(int a,int b);
+void main(){
+	int c,d;
+	cout<<"Enter first number:";
+	cin>>c;
+	cout<<"Enter first number:";
+	cin>>d;
+	cout<<bmm(c,d);
+	_getch();
+}
+int bmm(int a,int b){
+	int i=0,tmp;
+	for(i=1;i<b/2;++i){
+	if(a%i==0&&b%i==0)
+		tmp=i;
+	}
+	return tmp;
+}
