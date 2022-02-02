@@ -1,0 +1,222 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <math.h>
+#include <conio.h>
+#include <string.h>
+
+//************************** stack ****************************************
+struct stack
+{
+    char info;
+    stack *link;
+}*ss;
+//************************** stack ****************************************
+struct stack2
+{
+    long info;
+    stack2 *link;
+}*ss2;
+//************************** num ***************************************
+struct number
+{
+    long value;
+    char chr;
+    number *link;
+}*ns;
+//************************** check num **********************************
+long checknum(char chr)
+{
+    number *ptr;
+    ptr = ns;
+    while ( ptr != NULL)
+    {
+        if ( ptr->chr == chr) return ptr->value;
+        ptr = ptr->link;
+    }
+    return 0;
+}
+//************************** insert num **********************************
+void insertnum(long value, char chr)
+{
+    number *ptr;
+    ptr = (number*) malloc(sizeof(number));
+    ptr->link = ns;
+    ptr->chr = chr;
+    ptr->value = value;
+    ns = ptr;
+}
+//************************** push ***************************************
+void push(char item)
+{
+    stack *ptr;
+    ptr = (stack*) malloc(sizeof(stack));
+    ptr->info = item;
+    ptr->link = ss;
+    ss = ptr;
+}
+//************************** pop ****************************************
+char pop()
+{
+    stack *ptr;
+    ptr = ss;
+    char temp;
+    temp = ss->info;
+    ss = ss->link;
+    free(ptr);
+    return temp;
+}
+//************************** push ***************************************
+void push2(long item)
+{
+    stack2 *ptr;
+    ptr = (stack2*) malloc(sizeof(stack2));
+    ptr->info = item;
+    ptr->link = ss2;
+    ss2 = ptr;
+}
+//************************** pop ****************************************
+long pop2()
+{
+    stack2 *ptr;
+    ptr = ss2;
+    long temp;
+    temp = ss2->info;
+    ss2 = ss2->link;
+    free(ptr);
+    return temp;
+}
+//************************** mid ****************************************
+char mid ( char source[] , int position , int count , char destination[])
+{
+    int qcount = 0 , len ;
+    len = strlen(source);
+    for ( int i = position - 1 ; i < position + count - 1 && i < len ; i++ , qcount++)
+        destination[qcount] = source[i];
+    destination[qcount] = 0;
+    if ( qcount == 1) return destination[0];
+    else return 0;
+}
+//************************** priority **************************************
+int priority(char a , char b)
+{
+    if ( a == '^') return 1;
+    if ( b == '^') return 0;
+    if ( a == '*' || a == '/' || a == '%' ) return 1;
+    if ( b == '*' || b == '/' || b == '%' ) return 0;
+    return 1;
+}
+//************************** pulish ****************************************
+void pulish(char source[] , char dest[] , int len)
+{
+    char temp , temp2[2];
+    int count = 0;
+    for ( int i = 0 ; i < len ; i++)
+    {
+        temp = mid(source , i + 1 , 1 , temp2);
+        switch (temp)
+        {
+        case '+':
+        case '-':
+        case '*':
+        case '/':
+        case '^':
+        case '%':
+            if (ss->info == '(' || priority(ss->info , temp) == 0 ) push (temp);
+            else
+            {
+                while (ss ->info != '(' && priority(ss->info , temp))
+                    dest[count++] = pop();
+                push(temp);
+            }
+        break;
+        case '(':
+            push(temp);
+        break;
+
+        case ')':
+            while ( ss->info != '(')
+                dest[count++] = pop();
+            pop();
+        break;
+        default :
+            if ( temp >= 48 && temp <= 122)
+                dest[count++] = temp;
+        }
+    }
+    dest[count] = 0;
+}
+//************************** value ****************************************
+long value(char source[] , int len)
+{
+    char temp , temp2[2] ;
+    long a , b, result;
+    for ( int i = 0 ; i < len ; i++)
+    {
+        temp = mid ( source , i + 1 , 1 , temp2);
+        if ( temp >= 48 && temp <= 122)
+        {
+            a = checknum(temp);
+            if ( a == 0 )
+            {
+                printf("Please Enter %c =" , temp);
+                scanf("%u" ,&a);
+                insertnum(a , temp);
+                push2(a);
+            }
+            else push2(a);
+        }
+        else
+        {
+            b = pop2();
+            a = pop2();
+            switch (temp)
+            {
+            case '+':
+                result = a + b;
+                push2 (result);
+            break;
+            case '-':
+                result = a - b;
+                push2 (result);
+            break;
+            case '*':
+                result = a * b;
+                push2 (result);
+            break;
+            case '/':
+                result = a / b;
+                push2 (result);
+            break;
+            case '^':
+                result = pow(a,b);
+                push2 (result);
+            break;
+            case '%':
+                result = a % b;
+                push2 (result);
+            break;
+            }
+        }
+    }
+    return pop2();
+}
+//************************** main ****************************************
+int main()
+{
+    char p[102] , q[100];
+    clrscr();
+    int len;
+  cin>> p;
+    len = strlen(p);
+    for ( int i = len ; i > 0 ; i--)
+    p[i] = p[i-1];
+    p[0] = '(';
+    p[len + 1] = ')';
+    len +=2;
+    p[len] = 0;
+    pulish ( p , q , len);
+    len = strlen(q);
+    cout<< value ( q , len);
+    getch();
+    return 0;
+}
