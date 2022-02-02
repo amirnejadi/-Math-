@@ -1,0 +1,15 @@
+#include<iostream>
+#include<conio.h>
+#include<math.h>
+using namespace std;
+ 
+main()
+{
+float n;
+cout<<"please enter a number:";
+cin>>n;
+cout<<"\n\n"<<"square of "<<n<<"="<<sqrt(n);
+getch();
+return 0;
+}
+//>   amirnejadi1387@gmail.com
