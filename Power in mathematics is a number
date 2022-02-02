@@ -1,0 +1,19 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+ 
+main()
+{
+int n,e,sum=1;
+cout<<"enter number:";
+cin>>n;
+cout<<"\n"<<"enter exponent:";
+cin>>e;
+for(int i=1;i<=e;i++)
+sum*=n;
+cout<<"\n\n"<<n<<'^'<<e<<'='<<sum;
+cout<<"\n\n\n"<<"press any key to exit...";
+getch();
+return 0;
+}
+//>   amirnejadi1387@gmail.com
