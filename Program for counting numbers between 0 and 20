@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n,s[20];
+    cin>>n;
+    float nums[n];
+    for(int i=0;i<n;i++)
+    {
+        cin >> nums[i];
+    }
+    for(int y=0;y<=20;y++)
+    {
+        s[y]=0;
+    }
+    for(int i=0;i<n;i++)
+    {
+    for(int j=0;j<=20;j++)
+    {
+        if(j<20)
+        {
+        if(nums[i]>=j && nums[i]<(j+1))
+        {
+            s[j]=s[j]+1;
+        }
+        }
+        else if(j==20)
+        {
+        if(nums[i]==20)
+        {
+            s[j]+=1;
+        }
+        }
+    }
+    }
+    for(int p=0;p<=20;p++)
+    {
+        if(p<20)
+        cout << p<<"-"<<(p+0.99)<<" "<<s[p] << endl;
+        else
+        cout << p<<" "<<s[p] << endl;
+    }
+    return 0;
+    //sourcea.ir
+}
