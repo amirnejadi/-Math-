@@ -1,7 +1,6 @@
 #include <stdafx.h>
 #include <conio.h>
 #include <iostream>
-//sourcea.ir
 using namespace std;
 
 
