@@ -1,0 +1,13 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	float num1;
+	cout<<"enter number : ";
+	cin>>num1;
+	int num2=num1;
+	float num3=num1-num2;
+	cout<<"Sahih: "<<num2<<"\tAshari :"<<num3;
+
+	return 0;
+}
