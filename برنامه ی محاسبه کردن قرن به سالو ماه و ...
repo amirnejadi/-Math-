@@ -1,0 +1,60 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+
+    unsigned long int century,decade,year,month,week,day,hour,minute,second;
+    cout<<"Enter Number OF Century :\n";
+    cin>>century;
+    /*----------------*/
+
+    /*mohasebeye Dahe*/
+    decade=century*10;
+    /*---------------*/
+
+    /*mohasebeye Sal*/
+    year=century*100;
+    /*--------------*/
+
+    /*mohasebeye Mah*/
+    month=(century*100)*12;
+    /*--------------*/
+
+    /*mohasebeye Hafte*/
+    /*har sal 52 hafte ast.*/
+    week=(century*100)*52;
+    /*----------------*/
+
+    /*mohasebeye Rooz*/
+    day=(century*100)*365;
+    /*---------------*/
+
+    /*Mohasebeye Saat*/
+    /*har sal 8760 saat ast.*/
+    hour=(century*100)*8760;
+    /*----------------------*/
+
+    /*mohasebeye Daghige*/
+    /*har sal 525600 daghige ast.*/
+    minute=(century*100)*525600;
+    /*---------------------------*/
+
+    /*mohasebeye Saniye*/
+    /*har sal 31536000 saniye ast*/
+    second=(century*100)*31536000;
+    /*---------------------------*/
+
+    cout<<"\n";
+    cout<<" Decade = "<<decade<<"\n\n";
+    cout<<" Year = "<<year<<"\n\n";
+    cout<<" Month = "<<month<<"\n\n";
+    cout<<" Week = "<<week<<"\n\n";
+    cout<<" Day = "<<day<<"\n\n";
+    cout<<" Hour = "<<hour<<"\n\n";
+    cout<<" Minute = "<<minute<<"\n\n";
+    cout<<" Second = "<<second<<"\n\n";
+    cout<<" << This Program Writed By Sourcea.ir >>\n";
+    return 0;
+}
