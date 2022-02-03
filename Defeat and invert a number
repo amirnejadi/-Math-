@@ -1,0 +1,13 @@
+#include <iostream>
+
+using namespace std;
+int main()
+{
+    int num,n1,n2;
+    cout<<"plz add number= ";
+    cin>>num;
+    n1=num % 10;
+    n2=num / 10;
+    cout<<"maghlob= "<<n1<<n2<<"sum is= "<<n1+n2;
+    return 0;
+}
