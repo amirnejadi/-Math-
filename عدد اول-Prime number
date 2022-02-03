@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <conio.h>
+#include <iostream>
+
+using namespace std;
+int main()
+{
+    int a,i;
+    while(1){
+   
+   cout<<"\nEnter Number to problem  :  ";
+   cin>>a;
+    for (i=2;a>i;i++)
+        if (a%i==0)
+            break;
+    if (i==a)
+       cout<<"\t\t\t\t"<<"Yes, is Aval \n\n";
+    else
+        cout<<"\t\t\t\t"<<"Not! \n\n";
+        
+         }
+    getch();
+}
