@@ -1,0 +1,101 @@
+#include<iostream.h>
+#include<conio.h>
+#include<stdlib.h>
+
+int isprime(int);
+
+main()
+{
+int n=0,div[999],sh=0,pdiv[999],count=0,s=0;
+error:
+cout<<"Please insert a number : "<<"\n";
+cin>>n;
+if(n<=0)
+    {
+        clrscr();
+        cout<<"You are just aloud to enter numbers wich are bigger than 0 (zero) ! Please try again . OK ?"<<"\n";
+        n=0;
+        goto error;
+    }
+for(int i=1;i<=n;i++)
+    {
+        if((n%i)==0)
+            {
+                div[sh]=i;
+                sh++;
+            }
+    }
+if(sh==2)
+    {
+        cout<<"*******************************************  *******"<<"\n";
+        cout<<"This number is prime and has 2 divisors :"<<"\n "<<char(26)<<" {1 , "<<n<<"}"<<"\n";
+      cout<<"*******************************************  *******"<<"\n";
+        getch();
+        exit(1);
+    }
+else if(sh==1)
+    {
+        cout<<"*******************************************  *******"<<"\n";
+        cout<<"This number has ony 1 divisor :"<<"\n "<<char(26)<<" {1}"<<"\n";
+        cout<<"*******************************************  *******"<<"\n";
+        getch();
+        exit(1);
+    }
+else
+    {
+        cout<<"*******************************************  *******"<<"\n";
+        cout<<"This number is not prime and has "<<(sh)<<" divisors :"<<"\n "<<char(26)<<" {";
+        for(int j=0;j<sh;j++)
+            {
+                if(j==(sh-1))
+                    {
+                        cout<<div[j]<<"}"<<"\n";
+                        goto con;
+                    }
+                cout<<div[j]<<" , ";
+            }
+    }
+con:
+for(int k=0;k<sh;k++)
+    {
+        s=isprime(div[k]);
+        if(s!=0)
+            {
+            pdiv[count]=s;
+         s=0;
+            count++;
+            }
+        else
+            s=0;
+    }
+cout<<" "<<char(26)<<" Prime divisors : {";
+for(int u=0;u<count;u++)
+    {
+        if(u==(count-1))
+            {
+                cout<<pdiv[u]<<"}"<<"\n";
+                cout<<"*******************************************  *******"<<"\n";
+                getch();
+                exit(1);
+            }
+        cout<<pdiv[u]<<" , ";
+    }
+}
+
+//==============================================================================
+
+int isprime(int a)
+{
+int pri=0;
+for(int r=1;r<=a;r++)
+    {
+        if((a%r)==0)
+            pri++;
+    }
+if(pri==2)
+    return a;
+else
+    return 0;
+}
+
+ 
