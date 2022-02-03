@@ -1,0 +1,13 @@
+
+
+double <b>root</b>(double n,double a)
+
+{
+            double x1=1,x0;
+             do
+             {
+                         x0=x1;
+                         x1=(n-1)/n*x0+a/(n*pow(x0,n-1));
+             }while(fabs(x1-x0)>1e-6);
+             return x1;
+}
