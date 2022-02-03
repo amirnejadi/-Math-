@@ -1,0 +1,58 @@
+#include<iostream>
+#include<conio>
+#include<stdio>
+
+char num1[50], num2[50];
+int result[100]={0}, len;
+
+void mul(char *, char *, int *);
+
+int main()
+{  printf("---this program multiply to large numbers---\n");
+	printf("\n\tinput first number: ");
+	gets(num1);
+	printf("\n\tinput second number: ");
+	gets(num2);
+
+   mul(num1, num2, result);
+
+   printf("\n---------------------------------------------\n");
+  	printf("\n\tmultiple is: ");
+
+
+ 	for(int i=len ; i>-1 ; i--)
+  		cout << result[i];
+   printf("\n\n---------------------------------------------\n");
+ 	getch();
+ 	return 0;
+}
+
+/////////////
+
+void mul(char num1[], char num2[], int result[])
+{   int r, digit1, digit2, carry, count2;
+    int count1=0;
+
+	for(int i=strlen(num1)-1 ; i>=0 ; i--)
+   {  count2=0;
+      carry=0;
+   	digit1=num1[i]-'0';
+
+    	for(int j=strlen(num2)-1 ; j>=0 ; j--)
+      {  digit2 = num2[j]-'0';
+         r=(digit1*digit2+carry+result[count1+count2])%10;
+         carry=(digit1*digit2+carry+result[count1+count2])/10;
+         result[count1+count2]=r;
+     		count2++;
+     		len=count1+count2;
+    	}
+
+    	if (carry>0)  	result[len]=carry;
+  		else   len--;
+
+    	count1++;
+	}
+}
+
+
+
