@@ -1,0 +1,28 @@
+# include <iostream.h>
+# include <conio.h>
+
+//------------------------------Bmm
+int bmm(int x,int y){
+int temp=x % y;
+while (temp!=0){
+x=y;
+y=temp;
+temp=x % y;
+}
+return(y);
+}
+//------------------------------Kmm
+int kmm(int x,int y){
+return((x*y)/(bmm(x,y)));
+}
+//-----------------------------Main
+void main(){
+clrscr();
+int x,y;
+cout<<"Enter X: ";
+cin>>x;
+cout<<"\n"<<"Enter Y: ";
+cin>>y;
+cout<<"\n\nBMM: "<<bmm(x,y)<<"\nKMM: "<<kmm(x,y);
+getch();
+}
