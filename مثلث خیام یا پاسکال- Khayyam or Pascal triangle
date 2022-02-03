@@ -1,0 +1,26 @@
+#include<iostream.h>
+#include<conio.h>
+
+int fact(int,int);
+	main(){
+	int n,k,s=40,t=1,f=8;
+		  for(n=0;n<12;n++,t+=2){
+			  for(k=0;k<=n;k++,s+=6){
+				  gotoxy(s,t);
+				  cout<<fact(n,k);
+	  }
+		  s-=f+k;
+		  f+=5;
+		 }
+	}
+int fact(int n,int k){
+	long double nn=1,kk=1,tt=1;
+	int t=0;t=n-k;
+	for(int i=1;i<=n;i++)
+		nn=nn*i;
+	for(i=1;i<=k;i++)
+		kk=kk*i;
+	for(i=1;i<=t;i++)
+		tt=tt*i;
+	return nn/(kk*tt);
+	}
